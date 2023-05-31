@@ -28,7 +28,7 @@
 $ff-primary: 'Work Sans', sans-serif;
 $clr-background: #181925;
 $clr-text: #ccd3f2;
-$clr-accent: #537180;
+$clr-accent: #afdaef;
 
 body {
 	font-family: $ff-primary;
@@ -65,7 +65,7 @@ body {
 		gap: 0.5rem;
 		input[type='text'] {
 			background-color: $clr-text;
-			color: $clr-accent;
+			color: $clr-background;
 			opacity: 0.75;
 			border: transparent !important;
 			border-radius: 5px;
@@ -93,10 +93,20 @@ body {
 		grid-template-columns: repeat(2, 1fr);
 		justify-content: space-between;
 		padding: 0 1rem;
+		p {
+			color: $clr-accent;
+		}
+		span {
+			color: $clr-text;
+		}
 		&__preview {
 			display: grid;
 			justify-items: start;
 			align-items: center;
+			p:first-of-type {
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
 		}
 		&__details {
 			display: grid;
