@@ -1,0 +1,126 @@
+/* work-sans-300 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: url('../assets/fonts/work-sans-v18-latin-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* work-sans-regular - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../assets/fonts/work-sans-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* work-sans-700 - latin */
+@font-face {
+	font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'Work Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../assets/fonts/work-sans-v18-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+$ff-primary: 'Work Sans', sans-serif;
+$clr-background: #181925;
+$clr-text: #ccd3f2;
+$clr-accent: #537180;
+
+body {
+	font-family: $ff-primary;
+	background-color: $clr-background;
+	color: #ccd3f2;
+}
+.page-wrapper {
+	min-height: 100vh;
+	padding: 25px;
+	display: grid;
+	grid-template-areas: 'header' 'main' 'footer';
+	grid-template-rows: min-content auto min-content;
+}
+.header {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: start;
+	place-items: center;
+	gap: 25px;
+	&__logo {
+		height: 50px;
+	}
+}
+
+.main {
+	display: grid;
+	gap: 2rem;
+
+	&__form {
+		display: grid;
+		grid-auto-flow: column;
+		place-content: center;
+		place-items: center;
+		gap: 0.5rem;
+		input[type='text'] {
+			background-color: $clr-text;
+			color: $clr-accent;
+			opacity: 0.75;
+			border: transparent !important;
+			border-radius: 5px;
+			padding: 0.25rem 0.5rem;
+			height: min-content;
+		}
+		button {
+			background-color: transparent;
+			border: transparent !important;
+			padding: 0;
+
+			img {
+				height: 35px;
+			}
+		}
+		img:hover {
+			transform: scale(1.1);
+		}
+	}
+
+	&__current-section {
+		border: 1px solid white;
+		display: grid;
+		grid-auto-flow: column;
+		grid-template-columns: repeat(2, 1fr);
+		justify-content: space-between;
+		padding: 0 1rem;
+		&__preview {
+			display: grid;
+			justify-items: start;
+			align-items: center;
+		}
+		&__details {
+			display: grid;
+			justify-items: end;
+			align-items: center;
+		}
+	}
+}
+
+.footer {
+	display: grid;
+	grid-auto-flow: column;
+	place-content: center;
+	place-items: center;
+	gap: 12.5px;
+	&__icon {
+		height: 25px;
+	}
+	&__link {
+		text-decoration: none;
+		color: $clr-accent;
+	}
+	&__link:hover {
+		text-decoration: underline;
+		text-underline-offset: 0.25rem;
+	}
+}

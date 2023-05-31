@@ -11,7 +11,46 @@
 </head>
 
 <body>
+    <div class="page-wrapper">
+        <header class="header">
+            <img class="header__logo" src="./assets/images/mountain-logo.svg" alt="mountain-logo">
+            <h1 class="header__title">Divided Sky</h1>
+        </header>
+        <main class="main">
+            <form method="GET" action="" class="main__form" id="locationForm">
+                <label for="location" class="form-control">
+                    <input type="text" id="location" name="location" placeholder="Vermont...">
+                </label>
 
+
+                <button class="button" type="submit"><img src="./assets/images/search-icon.svg" alt=""></button>
+            </form>
+            <div class="main__current-section">
+                <div class="main__current-section__preview">
+                    <p id="conditonTextOutput">Partly cloudy</p>
+                    <p id="currentTempOutput">62.6</p>
+                    <p id="nameOutput">London</p>
+                    <p id="regionOutput">City of London, Greater London</p>
+                    <p id="countryOutput">United Kingdom</p>
+                    <p id="localTimeOutput">2023-05-31 19:05</p>
+                </div>
+                <div class="main__current-section__details">
+                    <p id="windSpeedOutput">16.1</p>
+                    <p id="windDirOutput">NE</p>
+                    <p id="pressureOutput">1025.0</p>
+                    <p id="HumidityOutput">63</p>
+                    <p id="visibilityOutput">10.0</p>
+                    <p id="uvOutput">5.0</p>
+                </div>
+            </div>
+            <div class="main__forecast-section"></div>
+        </main>
+        <footer class="footer">
+            <img src="./assets/images/github-mark-white.svg" alt="github-mark-white" class="footer__icon">
+            <p class="footer__text">created by <a href="https://github.com/probableactions"
+                    class="footer__link">probableactions</a></p>
+        </footer>
+    </div>
 </body>
 
 </html>
