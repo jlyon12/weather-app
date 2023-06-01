@@ -41,6 +41,7 @@ body {
 	display: grid;
 	grid-template-areas: 'header' 'main' 'footer';
 	grid-template-rows: min-content auto min-content;
+	gap: 2rem;
 }
 .header {
 	display: grid;
@@ -57,37 +58,75 @@ body {
 	display: grid;
 	gap: 2rem;
 
-	&__form {
+	&__form-section {
 		display: grid;
-		grid-auto-flow: column;
-		place-content: center;
-		place-items: center;
-		gap: 0.5rem;
-		input[type='text'] {
-			background-color: $clr-text;
-			color: $clr-background;
-			opacity: 0.75;
-			border: transparent !important;
-			border-radius: 5px;
-			padding: 0.25rem 0.5rem;
-			height: min-content;
-		}
-		button {
-			background-color: transparent;
-			border: transparent !important;
-			padding: 0;
+		gap: 1rem;
+		align-content: start;
+		form {
+			display: grid;
+			grid-auto-flow: column;
+			place-content: center;
+			place-items: center;
+			gap: 0.5rem;
+			input[type='text'] {
+				background-color: $clr-text;
+				color: $clr-background;
+				opacity: 0.75;
+				border: transparent !important;
+				border-radius: 5px;
+				padding: 0.25rem 0.5rem;
+				height: min-content;
+			}
+			button {
+				background-color: transparent;
+				border: transparent !important;
+				padding: 0;
 
-			img {
-				height: 35px;
+				img {
+					height: 35px;
+				}
+			}
+			img:hover {
+				transform: scale(1.1);
 			}
 		}
-		img:hover {
-			transform: scale(1.1);
+		.toggle-container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			.switch {
+				position: relative;
+				display: inline-block;
+				width: 50px;
+				height: 25px;
+				background-color: $clr-text;
+				border-radius: 25px;
+			}
+			.switch::after {
+				content: '';
+				position: absolute;
+				width: 23px;
+				height: 23px;
+				border-radius: 50%;
+				background-color: $clr-background;
+				top: 1px;
+				left: 1px;
+				transition: all 0.3s;
+			}
+			.checkbox:checked + .switch::after {
+				left: 25px;
+			}
+			.checkbox:checked + .switch {
+				background-color: $clr-accent;
+			}
+			.checkbox {
+				display: none;
+			}
 		}
 	}
 
 	&__current-section {
-		border: 1px solid white;
 		display: grid;
 		grid-auto-flow: column;
 		grid-template-columns: repeat(2, 1fr);

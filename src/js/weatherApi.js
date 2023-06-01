@@ -9,14 +9,17 @@ const fetchCurrentWeather = async (url) => {
 	return data;
 };
 
+let weatherData;
+
 const processWeatherData = async (location) => {
 	const data = await fetchCurrentWeather(buildURL(location));
-	const weatherData = {
+	weatherData = {
 		name: data.location.name,
 		region: data.location.region,
 		country: data.location.country,
 		time: data.location.localtime,
 		conditions: data.current.condition.text,
+		icon: data.current.condition.icon,
 		temp: {
 			metric: data.current.temp_c,
 			imperial: data.current.temp_f,
@@ -38,4 +41,4 @@ const processWeatherData = async (location) => {
 	return weatherData;
 };
 
-export default processWeatherData;
+export { processWeatherData, weatherData };

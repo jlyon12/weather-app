@@ -17,15 +17,21 @@
             <h1 class="header__title">Divided Sky</h1>
         </header>
         <main class="main">
-            <form method="GET" action="" class="main__form" id="locationForm">
-                <label for="location" class="form-control">
-                    <input type="text" id="location" name="location" placeholder="Vermont...">
-                </label>
+            <div class="main__form-section">
+                <form method="GET" action="" class="form" id="locationForm">
+                    <label for="location" class="form-control">
+                        <input type="text" id="location" name="location" placeholder="Vermont...">
+                    </label>
+                    <button class="button" type="submit" id="btnSubmit"><img src="./assets/images/search-icon.svg"
+                            alt=""></button>
+                </form>
 
-
-                <button class="button" type="submit" id="btnSubmit"><img src="./assets/images/search-icon.svg"
-                        alt=""></button>
-            </form>
+                <div class="toggle-container">
+                    <p><span id="unitMode">Imperial</span> Units</p>
+                    <input type="checkbox" id="toggleUnit" class="checkbox" /><label for="toggleUnit"
+                        class="switch"></label>
+                </div>
+            </div>
             <div class="main__current-section">
                 <div class="main__current-section__preview">
                     <p>It is <span id="conditionTextOutput"></span></p>

@@ -2,6 +2,8 @@
 const form = document.getElementById('locationForm');
 const locationInput = document.getElementById('location');
 const btnSubmit = document.getElementById('btnSubmit');
+const toggleUnit = document.getElementById('toggleUnit');
+const unitMode = document.getElementById('unitMode');
 
 // Output Elements for API responses
 // Current Section - Preview Section
@@ -23,6 +25,8 @@ export {
 	form,
 	locationInput,
 	btnSubmit,
+	toggleUnit,
+	unitMode,
 	conditionTextOutput,
 	currentTempOutput,
 	nameOutput,
