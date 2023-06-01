@@ -60,7 +60,7 @@ body {
 
 	&__form-section {
 		display: grid;
-		gap: 1rem;
+		gap: 2rem;
 		align-content: start;
 		form {
 			display: grid;
@@ -94,7 +94,7 @@ body {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			gap: 1rem;
+			gap: 1.5rem;
 			.switch {
 				position: relative;
 				display: inline-block;
@@ -128,29 +128,38 @@ body {
 
 	&__current-section {
 		display: grid;
-		grid-auto-flow: column;
+		grid-template-areas: 'header header' 'section-left section-right';
 		grid-template-columns: repeat(2, 1fr);
-		justify-content: space-between;
-		padding: 0 1rem;
-		p {
+		gap: 10%;
+		padding: 0 20%;
+		.bold {
+			grid-area: header;
+			place-self: center;
+			font-size: 2rem;
+		}
+		p:not(.bold) {
 			color: $clr-accent;
+			display: grid;
+			font-weight: bold;
+			letter-spacing: 0.5px;
 		}
 		span {
 			color: $clr-text;
+			font-weight: 400;
 		}
 		&__preview {
 			display: grid;
 			justify-items: start;
 			align-items: center;
-			p:first-of-type {
-				font-size: 1.5rem;
-				font-weight: bold;
-			}
+
+			gap: 1rem;
 		}
 		&__details {
 			display: grid;
+			text-align: right;
 			justify-items: end;
 			align-items: center;
+			gap: 1rem;
 		}
 	}
 }

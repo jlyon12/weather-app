@@ -18,7 +18,7 @@ import {
 import { weatherData } from './weatherApi';
 
 const updateCurrentWeatherOutputs = async () => {
-	conditionTextOutput.textContent = weatherData.conditions;
+	conditionTextOutput.textContent = `${weatherData.conditions} in ${weatherData.name}`;
 	if (toggleUnit.checked === false) {
 		windSpeedOutput.textContent = `${weatherData.windSpeed.imperial} mph`;
 		currentTempOutput.textContent = `${weatherData.temp.imperial} F°`;
