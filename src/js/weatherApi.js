@@ -17,7 +17,7 @@ const processWeatherData = async (location) => {
 		name: data.location.name,
 		region: data.location.region,
 		country: data.location.country,
-		time: data.location.localtime,
+		time: new Date(data.location.localtime),
 		conditions: data.current.condition.text,
 		icon: data.current.condition.icon,
 		temp: {
@@ -40,5 +40,6 @@ const processWeatherData = async (location) => {
 
 	return weatherData;
 };
+processWeatherData('Denver');
 
 export { processWeatherData, weatherData };

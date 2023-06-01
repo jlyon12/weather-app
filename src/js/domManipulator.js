@@ -1,10 +1,11 @@
+import format from 'date-fns/format';
+
 import {
 	unitMode,
 	toggleUnit,
 	conditionTextOutput,
 	currentTempOutput,
-	nameOutput,
-	regionOutput,
+	locationOutput,
 	countryOutput,
 	localTimeOutput,
 	windSpeedOutput,
@@ -27,14 +28,13 @@ const updateCurrentWeatherOutputs = async () => {
 		currentTempOutput.textContent = `${weatherData.temp.metric} C°`;
 		visibilityOutput.textContent = `${weatherData.visibility.metric} km`;
 	}
-	nameOutput.textContent = weatherData.name;
-	regionOutput.textContent = weatherData.region;
+	locationOutput.textContent = `${weatherData.name}, ${weatherData.region}`;
 	countryOutput.textContent = weatherData.country;
-	localTimeOutput.textContent = weatherData.time;
+	localTimeOutput.textContent = format(weatherData.time, 'PPP');
 
 	windDirOutput.textContent = weatherData.windDir;
-	pressureOutput.textContent = weatherData.pressure;
-	humidityOutput.textContent = weatherData.humidity;
+	pressureOutput.textContent = `${weatherData.pressure} mb`;
+	humidityOutput.textContent = `${weatherData.humidity} %`;
 
 	uvOutput.textContent = weatherData.uv;
 };
