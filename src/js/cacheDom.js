@@ -13,6 +13,7 @@ const nameOutput = document.getElementById('nameOutput');
 const locationOutput = document.getElementById('locationOutput');
 const countryOutput = document.getElementById('countryOutput');
 const localTimeOutput = document.getElementById('localTimeOutput');
+const localDateOutput = document.getElementById('localDateOutput');
 // Current Section - Details Section
 const windSpeedOutput = document.getElementById('windSpeedOutput');
 const windDirOutput = document.getElementById('windDirOutput');
@@ -33,6 +34,7 @@ export {
 	locationOutput,
 	countryOutput,
 	localTimeOutput,
+	localDateOutput,
 	windSpeedOutput,
 	windDirOutput,
 	pressureOutput,

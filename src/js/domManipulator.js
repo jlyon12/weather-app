@@ -8,6 +8,7 @@ import {
 	locationOutput,
 	countryOutput,
 	localTimeOutput,
+	localDateOutput,
 	windSpeedOutput,
 	windDirOutput,
 	pressureOutput,
@@ -30,7 +31,8 @@ const updateCurrentWeatherOutputs = async () => {
 	}
 	locationOutput.textContent = `${weatherData.name}, ${weatherData.region}`;
 	countryOutput.textContent = weatherData.country;
-	localTimeOutput.textContent = format(weatherData.time, 'PPP');
+	localTimeOutput.textContent = format(weatherData.time, 'h:mm bbb');
+	localDateOutput.textContent = format(weatherData.time, 'PPPP');
 
 	windDirOutput.textContent = weatherData.windDir;
 	pressureOutput.textContent = `${weatherData.pressure} mb`;

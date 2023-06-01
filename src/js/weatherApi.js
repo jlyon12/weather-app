@@ -40,6 +40,5 @@ const processWeatherData = async (location) => {
 
 	return weatherData;
 };
-processWeatherData('Denver');
 
 export { processWeatherData, weatherData };

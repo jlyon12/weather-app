@@ -136,6 +136,7 @@ body {
 			grid-area: header;
 			place-self: center;
 			font-size: 2rem;
+			text-align: center;
 		}
 		p:not(.bold) {
 			color: $clr-accent;
