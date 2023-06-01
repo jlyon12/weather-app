@@ -16,6 +16,15 @@ toggleUnit.addEventListener('change', () => {
 
 window.addEventListener('load', async () => {
 	updateUnitMode();
-	await processWeatherData('Vermont');
-	updateCurrentWeatherOutputs();
+	const getCoords = async (position) => {
+		const lat = position.coords.latitude;
+		const lon = position.coords.longitude;
+		await processWeatherData(`${lat},${lon}`);
+		updateCurrentWeatherOutputs();
+	};
+	const errorCallback = async () => {
+		await processWeatherData('Vermont');
+		updateCurrentWeatherOutputs();
+	};
+	navigator.geolocation.getCurrentPosition(getCoords, errorCallback);
 });
