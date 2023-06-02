@@ -30,6 +30,7 @@ const processWeatherData = async (location) => {
 			imperial: data.current.wind_mph,
 		},
 		windDir: data.current.wind_dir,
+		windDeg: data.current.wind_degree,
 		pressure: data.current.pressure_mb,
 		humidity: data.current.humidity,
 		visibility: {

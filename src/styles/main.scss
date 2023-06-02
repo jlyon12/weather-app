@@ -187,6 +187,10 @@ body {
 				text-align: left;
 			}
 		}
+		#windDirOutput {
+			display: flex;
+			justify-content: end;
+		}
 	}
 	&__forecast-section__daily {
 		display: grid;

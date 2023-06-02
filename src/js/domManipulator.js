@@ -1,5 +1,5 @@
 import format from 'date-fns/format';
-
+import arrowUp from '../assets/images/arrow-up.svg';
 import {
 	unitMode,
 	toggleUnit,
@@ -36,7 +36,12 @@ const updateCurrentWeatherOutputs = async () => {
 	localTimeOutput.textContent = format(currentWeatherData.time, 'h:mm bbb');
 	localDateOutput.textContent = format(currentWeatherData.time, 'PPP');
 
-	windDirOutput.textContent = currentWeatherData.windDir;
+	windDirOutput.textContent = `${currentWeatherData.windDir} `;
+	const windArrow = new Image();
+	windArrow.src = arrowUp;
+	windArrow.width = 20;
+	windArrow.style.transform = `rotate(${currentWeatherData.windDeg}deg)`;
+	windDirOutput.appendChild(windArrow);
 	pressureOutput.textContent = `${currentWeatherData.pressure} mb`;
 	humidityOutput.textContent = `${currentWeatherData.humidity} %`;
 
