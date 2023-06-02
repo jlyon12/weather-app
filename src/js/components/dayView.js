@@ -22,18 +22,18 @@ export default function createDayView(foreCastDayObj) {
 	pLowTemp.textContent = 'Low';
 	const spanLowTemp = document.createElement('span');
 	if (toggleUnit.checked) {
-		spanLowTemp.textContent = `${foreCastDayObj.day.mintemp_c} C°`;
+		spanLowTemp.textContent = `${foreCastDayObj.day.mintemp_c} °C`;
 	} else {
-		spanLowTemp.textContent = `${foreCastDayObj.day.mintemp_f} F°`;
+		spanLowTemp.textContent = `${foreCastDayObj.day.mintemp_f} °F`;
 	}
 	pLowTemp.appendChild(spanLowTemp);
 	const pHighTemp = document.createElement('p');
 	pHighTemp.textContent = 'High';
 	const spanHighTemp = document.createElement('span');
 	if (toggleUnit.checked) {
-		spanHighTemp.textContent = `${foreCastDayObj.day.maxtemp_c} C°`;
+		spanHighTemp.textContent = `${foreCastDayObj.day.maxtemp_c} °C`;
 	} else {
-		spanHighTemp.textContent = `${foreCastDayObj.day.maxtemp_f} F`;
+		spanHighTemp.textContent = `${foreCastDayObj.day.maxtemp_f} °F`;
 	}
 	pHighTemp.appendChild(spanHighTemp);
 	const pRain = document.createElement('p');

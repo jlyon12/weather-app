@@ -24,11 +24,11 @@ const updateCurrentWeatherOutputs = async () => {
 	conditionTextOutput.textContent = `${currentWeatherData.conditions} in ${currentWeatherData.name}`;
 	if (toggleUnit.checked === false) {
 		windSpeedOutput.textContent = `${currentWeatherData.windSpeed.imperial} mph`;
-		currentTempOutput.textContent = `${currentWeatherData.temp.imperial} F°`;
+		currentTempOutput.textContent = `${currentWeatherData.temp.imperial} °F`;
 		visibilityOutput.textContent = `${currentWeatherData.visibility.imperial} mi`;
 	} else {
 		windSpeedOutput.textContent = `${currentWeatherData.windSpeed.metric} kph`;
-		currentTempOutput.textContent = `${currentWeatherData.temp.metric} C°`;
+		currentTempOutput.textContent = `${currentWeatherData.temp.metric} °C`;
 		visibilityOutput.textContent = `${currentWeatherData.visibility.metric} km`;
 	}
 	locationOutput.textContent = `${currentWeatherData.name}, ${currentWeatherData.region}`;
