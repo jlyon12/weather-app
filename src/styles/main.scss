@@ -247,4 +247,7 @@ body {
 		text-decoration: underline;
 		text-underline-offset: 0.25rem;
 	}
+	@media screen and (max-width: 500px) {
+		grid-auto-flow: row;
+	}
 }
