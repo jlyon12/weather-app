@@ -1,7 +1,7 @@
 const API_KEY = '9451b398bf8c41a187421244232805';
 
 const buildURL = (location) =>
-	`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=3&aqi=no`;
+	`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=3&aqi=no`;
 
 const fetchCurrentWeather = async (url) => {
 	const response = await fetch(url, { mode: 'cors' });
