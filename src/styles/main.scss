@@ -37,11 +37,11 @@ body {
 }
 .page-wrapper {
 	min-height: 100vh;
-	padding: 25px;
+	padding: 1rem;
 	display: grid;
 	grid-template-areas: 'header' 'main' 'footer';
 	grid-template-rows: min-content auto min-content;
-	gap: 2rem;
+	gap: 1rem;
 }
 .header {
 	display: grid;
@@ -56,12 +56,18 @@ body {
 
 .main {
 	display: grid;
-	gap: 2rem;
+	gap: 1rem;
 	grid-template-rows: fit-content 1fr 1fr;
 	&__form-section {
 		display: grid;
-		align-content: start;
+		grid-auto-flow: column;
+		justify-content: space-between;
 		gap: 1rem;
+		padding: 0 1rem;
+		@media screen and (max-width: 500px) {
+			grid-auto-flow: row;
+			place-content: center;
+		}
 		form {
 			display: grid;
 			grid-auto-flow: column;
@@ -69,8 +75,8 @@ body {
 			place-items: center;
 			gap: 0.5rem;
 			input[type='text'] {
-				background-color: $clr-text;
-				color: $clr-background;
+				background-color: hsla(231, 22%, 18%, 0.8);
+				color: $clr-accent;
 				opacity: 0.75;
 				border: transparent !important;
 				border-radius: 5px;
@@ -130,8 +136,11 @@ body {
 		display: grid;
 		grid-template-areas: 'header header' 'section-left section-right';
 		grid-template-columns: repeat(2, 1fr);
-
 		padding: 0 20%;
+		@media screen and (max-width: 768px) {
+			grid-template-columns: 1fr;
+			grid-template-areas: 'header' 'details';
+		}
 		.bold {
 			grid-area: header;
 			font-size: 2rem;
@@ -143,11 +152,26 @@ body {
 			font-weight: bold;
 			letter-spacing: 0.5px;
 			margin: 0.5rem;
+			@media screen and (max-width: 768px) {
+				grid-auto-flow: column;
+				width: 100%;
+				justify-content: space-between;
+				gap: 1rem;
+			}
+		}
+		#localDateOutput {
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
 		}
 		span {
 			color: $clr-text;
 			font-weight: 400;
+			@media screen and (max-width: 768px) {
+				text-align: right;
+			}
 		}
+
 		&__preview {
 			display: grid;
 			justify-items: start;
@@ -158,13 +182,15 @@ body {
 			text-align: right;
 			justify-items: end;
 			align-items: center;
+			@media screen and (max-width: 768px) {
+				justify-items: start;
+				text-align: left;
+			}
 		}
 	}
 	&__forecast-section__daily {
 		display: grid;
 		grid-auto-flow: column;
-		place-content: space-around;
-
 		@media screen and (max-width: 768px) {
 			grid-auto-flow: row;
 		}
@@ -173,24 +199,33 @@ body {
 			font-weight: bold;
 			letter-spacing: 0.5px;
 			display: grid;
+			place-items: center;
 			margin: 0.5em;
 		}
 		span {
 			color: $clr-text;
+			font-weight: 400;
 		}
-		font-weight: 400;
 	}
 	.day-container {
 		display: grid;
-		grid-template-rows: repeat(3, fit-content);
-		grid-template-columns: repeat(2, 1fr);
-		border: 2px solid $clr-accent;
-		border-radius: 4px;
+		place-content: center;
+		background-color: hsla(231, 22%, 18%, 0.8);
+		border-radius: 10px;
 		margin: 1rem;
-		p:first-of-type,
-		p:nth-of-type(2) {
-			grid-column: 1/3;
-			place-content: center;
+		place-items: center;
+		.day-title {
+			font-weight: bold;
+			font-size: 1.125em;
+		}
+
+		.sub-container {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			place-items: center;
+			@media screen and (max-width: 768px) {
+				grid-auto-flow: column;
+			}
 		}
 	}
 }

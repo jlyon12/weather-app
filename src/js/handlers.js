@@ -3,14 +3,20 @@ import {
 	updateCurrentWeatherOutputs,
 	updateUnitMode,
 	renderDayForecast,
+	renderErrorMessage,
 } from './domManipulator';
 import { processWeatherData } from './weatherApi';
 
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
-	await processWeatherData(locationInput.value);
-	updateCurrentWeatherOutputs();
-	renderDayForecast();
+	try {
+		await processWeatherData(locationInput.value);
+		updateCurrentWeatherOutputs();
+		renderDayForecast();
+	} catch {
+		renderErrorMessage();
+	}
+
 	form.reset();
 });
 

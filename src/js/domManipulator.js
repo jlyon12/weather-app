@@ -34,7 +34,7 @@ const updateCurrentWeatherOutputs = async () => {
 	locationOutput.textContent = `${currentWeatherData.name}, ${currentWeatherData.region}`;
 	countryOutput.textContent = currentWeatherData.country;
 	localTimeOutput.textContent = format(currentWeatherData.time, 'h:mm bbb');
-	localDateOutput.textContent = format(currentWeatherData.time, 'PPPP');
+	localDateOutput.textContent = format(currentWeatherData.time, 'PPP');
 
 	windDirOutput.textContent = currentWeatherData.windDir;
 	pressureOutput.textContent = `${currentWeatherData.pressure} mb`;
@@ -56,4 +56,12 @@ const renderDayForecast = () => {
 		dayForecast.appendChild(createDayView(day))
 	);
 };
-export { updateCurrentWeatherOutputs, updateUnitMode, renderDayForecast };
+const renderErrorMessage = () => {
+	conditionTextOutput.textContent = `Please enter a valid city, postal code or latitude and longitude.`;
+};
+export {
+	updateCurrentWeatherOutputs,
+	updateUnitMode,
+	renderDayForecast,
+	renderErrorMessage,
+};
