@@ -21,7 +21,8 @@ const pressureOutput = document.getElementById('pressureOutput');
 const humidityOutput = document.getElementById('humidityOutput');
 const visibilityOutput = document.getElementById('visibilityOutput');
 const uvOutput = document.getElementById('uvOutput');
-
+// Forecast Section
+const dayForecast = document.getElementById('dayForecast');
 export {
 	form,
 	locationInput,
@@ -41,4 +42,5 @@ export {
 	humidityOutput,
 	visibilityOutput,
 	uvOutput,
+	dayForecast,
 };

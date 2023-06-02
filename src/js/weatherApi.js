@@ -1,7 +1,7 @@
 const API_KEY = '9451b398bf8c41a187421244232805';
 
 const buildURL = (location) =>
-	`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${location}&aqi=no`;
+	`http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${location}&days=3&aqi=no`;
 
 const fetchCurrentWeather = async (url) => {
 	const response = await fetch(url, { mode: 'cors' });
@@ -9,11 +9,12 @@ const fetchCurrentWeather = async (url) => {
 	return data;
 };
 
-let weatherData;
+let currentWeatherData;
+let daysForecastData;
 
 const processWeatherData = async (location) => {
 	const data = await fetchCurrentWeather(buildURL(location));
-	weatherData = {
+	currentWeatherData = {
 		name: data.location.name,
 		region: data.location.region,
 		country: data.location.country,
@@ -37,8 +38,12 @@ const processWeatherData = async (location) => {
 		},
 		uv: data.current.uv,
 	};
+	daysForecastData = [];
+	data.forecast.forecastday.forEach((forecastday) =>
+		daysForecastData.push(forecastday)
+	);
 
-	return weatherData;
+	return { currentWeatherData, daysForecastData };
 };
 
-export { processWeatherData, weatherData };
+export { processWeatherData, currentWeatherData, daysForecastData };

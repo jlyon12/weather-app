@@ -15,30 +15,32 @@ import {
 	humidityOutput,
 	visibilityOutput,
 	uvOutput,
+	dayForecast,
 } from './cacheDom';
-import { weatherData } from './weatherApi';
+import { currentWeatherData, daysForecastData } from './weatherApi';
+import createDayView from './components/dayView';
 
 const updateCurrentWeatherOutputs = async () => {
-	conditionTextOutput.textContent = `${weatherData.conditions} in ${weatherData.name}`;
+	conditionTextOutput.textContent = `${currentWeatherData.conditions} in ${currentWeatherData.name}`;
 	if (toggleUnit.checked === false) {
-		windSpeedOutput.textContent = `${weatherData.windSpeed.imperial} mph`;
-		currentTempOutput.textContent = `${weatherData.temp.imperial} F°`;
-		visibilityOutput.textContent = `${weatherData.visibility.imperial} mi`;
+		windSpeedOutput.textContent = `${currentWeatherData.windSpeed.imperial} mph`;
+		currentTempOutput.textContent = `${currentWeatherData.temp.imperial} F°`;
+		visibilityOutput.textContent = `${currentWeatherData.visibility.imperial} mi`;
 	} else {
-		windSpeedOutput.textContent = `${weatherData.windSpeed.metric} kph`;
-		currentTempOutput.textContent = `${weatherData.temp.metric} C°`;
-		visibilityOutput.textContent = `${weatherData.visibility.metric} km`;
+		windSpeedOutput.textContent = `${currentWeatherData.windSpeed.metric} kph`;
+		currentTempOutput.textContent = `${currentWeatherData.temp.metric} C°`;
+		visibilityOutput.textContent = `${currentWeatherData.visibility.metric} km`;
 	}
-	locationOutput.textContent = `${weatherData.name}, ${weatherData.region}`;
-	countryOutput.textContent = weatherData.country;
-	localTimeOutput.textContent = format(weatherData.time, 'h:mm bbb');
-	localDateOutput.textContent = format(weatherData.time, 'PPPP');
+	locationOutput.textContent = `${currentWeatherData.name}, ${currentWeatherData.region}`;
+	countryOutput.textContent = currentWeatherData.country;
+	localTimeOutput.textContent = format(currentWeatherData.time, 'h:mm bbb');
+	localDateOutput.textContent = format(currentWeatherData.time, 'PPPP');
 
-	windDirOutput.textContent = weatherData.windDir;
-	pressureOutput.textContent = `${weatherData.pressure} mb`;
-	humidityOutput.textContent = `${weatherData.humidity} %`;
+	windDirOutput.textContent = currentWeatherData.windDir;
+	pressureOutput.textContent = `${currentWeatherData.pressure} mb`;
+	humidityOutput.textContent = `${currentWeatherData.humidity} %`;
 
-	uvOutput.textContent = weatherData.uv;
+	uvOutput.textContent = currentWeatherData.uv;
 };
 const updateUnitMode = () => {
 	if (toggleUnit.checked === true) {
@@ -47,4 +49,11 @@ const updateUnitMode = () => {
 		unitMode.textContent = 'Imperial';
 	}
 };
-export { updateCurrentWeatherOutputs, updateUnitMode };
+
+const renderDayForecast = () => {
+	dayForecast.textContent = '';
+	daysForecastData.forEach((day) =>
+		dayForecast.appendChild(createDayView(day))
+	);
+};
+export { updateCurrentWeatherOutputs, updateUnitMode, renderDayForecast };
