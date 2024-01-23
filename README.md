@@ -6,7 +6,7 @@ The project brief is found <a href="https://www.theodinproject.com/lessons/node-
 
 ## Getting Started
 
-<a href="https://probableactions.github.io/weather-app/" target="_blank"> Live Link </a> 👈🏻
+<a href="https://jlyon12.github.io/weather-app/" target="_blank"> Live Link </a> 👈🏻
 <br/>
 Use the search input to retrieve the current weather data for given location.
 Three day forecast is available for the given location.
